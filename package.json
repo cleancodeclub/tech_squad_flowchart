@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "name": "tech_squad_flowchart",
+  "description": "Flowchart app for TechSquad",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleancodeclub/tech_squad_flowchart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cleancodeclub/tech_squad_flowchart/issues"
+  },
+  "homepage": "https://github.com/cleancodeclub/tech_squad_flowchart#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
