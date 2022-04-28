@@ -3,12 +3,12 @@
     "express": "^4.18.0"
   },
   "name": "tech_squad_flowchart",
-  "description": "### Contributors 1. Kevin Chisholm <kevinjchisholm@gmail.com> 2. Shaun Polley <spolley2294@sdsu.edu> 3. David Wisman wismandl@gmail.com 4. Ricardo Gonzalez <ricardo.gonzalez.villegas@gmail.com> 5. Elijah Seenandan <eseenandan@gmail.com>",
+  "description": "Flowchart app for TechSquad",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/cleancodeclub/tech_squad_flowchart/issues"
   },
-  "homepage": "https://github.com/cleancodeclub/tech_squad_flowchart#readme"
+  "homepage": "https://github.com/cleancodeclub/tech_squad_flowchart#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
