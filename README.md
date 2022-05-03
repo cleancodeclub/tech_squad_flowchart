@@ -11,4 +11,15 @@
 ### Important links
 [Project Charter](https://docs.google.com/document/d/1rdip4S5lS00AhkXy9fjQJp3OXXjqvYW_qPnZqxMsJI4/edit?usp=sharing)
 
+### Installation instructions
+
+**Node.js v18.x**:
+
+```sh
+# Using Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install npm
+node index.js
+```
+
 
