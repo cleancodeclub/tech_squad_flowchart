@@ -1,21 +1,31 @@
 import express from "express";
-const router = express.Router()
+export const stepRouter = express.Router()
 
 // [TODO Ricardo]: Create crud methods
 // Read All
-router.get('/step', ( req, res ) =>{
+
+stepRouter.get('/', ( req, res ) =>{
   res.send({data: "get steps"})
 })
 
 // Read one
-router.get('/step/:id', (req, res) => {
-  res.send({id: req.params})
+stepRouter.get('/:id', (req, res) => {
+  res.send({id: req.params.id})
 })
 
 // Create
+stepRouter.post('/', (req, res) => {
+  res.send({message: 'sucessfully created'})
+})
 
 // Delete
+stepRouter.delete('/:id', (req, res) => {
+  res.send({message: `sucessfully deleted ${req.params.id}`})
+})
 
 // Update
+stepRouter.put('/:id', (req, res) => {
+  res.send({message: `sucessfully updated ${req.params.id}`})
+})
 
-module.exports = router
+
