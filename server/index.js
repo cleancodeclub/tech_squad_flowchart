@@ -11,14 +11,13 @@ app.use('/data', dataRouter)
 
 app.get('/', (req, res) => {
     res.send('Welcome to tech squad')
-    console.log(process.env)
+    console.log(process.env.PORT)
 })
 
 // [TODO Ricardo] make this work independent of if we are on local or remote hosting.
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`);
 })
-
 
 
 
