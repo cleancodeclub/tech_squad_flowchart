@@ -36,6 +36,10 @@ dataRouter.get('/:id', async (req, res) => {
 // [TODO Shaun] add a document
 dataRouter.post('/', (req, res) => {
   // implement functionality
+  // add {
+  //   text: 'this is some wild silicon step'
+  //   img: 'https://somewildimage.image
+  // }
 })
 
 // [TODO Elijah] delete a document
