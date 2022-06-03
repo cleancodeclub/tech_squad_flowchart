@@ -1,12 +1,14 @@
 import express from 'express';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore/lite';
 import { firebaseConfig } from '../config.js';
 export const dataRouter = express.Router()
 
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
+initializeApp(firebaseConfig);
+const db = getFirestore();
+const colRef = collection(db, 'test')
 
+// get all documents
 dataRouter.get('/', async (req, res) => {
     const querySnapshot = await getDocs(collection(db, "test"));
     const documents = querySnapshot.docs
@@ -19,3 +21,29 @@ dataRouter.get('/', async (req, res) => {
     res.send(docsCopy)
   })
 
+// get a single document
+dataRouter.get('/:id', async (req, res) => {
+  const docRef = doc(db, 'test', req.params.id)
+  getDoc(docRef)
+    .then((doc) => {
+      res.send(doc.data());
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  })
+
+// [TODO Shaun] add a document
+dataRouter.post('/', (req, res) => {
+  // implement functionality
+})
+
+// [TODO Elijah] delete a document
+dataRouter.post('/:id', (req, res) => {
+  // implement functionality
+})
+
+// [TODO Ricardo] update a document
+dataRouter.patch('/:id', (req, res) => {
+  // implement functionality
+})
