@@ -1,6 +1,6 @@
 import express from 'express';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore/lite';
 import { firebaseConfig } from '../config.js';
 export const dataRouter = express.Router()
 
@@ -34,18 +34,28 @@ dataRouter.get('/:id', async (req, res) => {
   })
 
 // [TODO Shaun] add a document
-dataRouter.post('/', (req, res) => {
-  // implement functionality
-  // add {
-  //   text: 'this is some wild silicon step'
-  //   img: 'https://somewildimage.image
-  // }
-})
+dataRouter.post('/', async (req, res) => {
+  // Add a new document with a generated id.
+  const data = {
+    imgURL: 'https://images.unsplash.com/photo-1501949997128-2fdb9f6428f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    text: 'Test'
+    } 
+  addDoc(colRef, data)
+  // const addDoc = await db.collection('test').doc('shaunTestAdd').set(data);
+  res.status(200).send("Successful")
+});
 
 // [TODO Elijah] delete a document
 dataRouter.post('/:id', (req, res) => {
   // implement functionality
 })
+
+
+
+
+
+
+
 
 // [TODO Ricardo] update a document
 dataRouter.patch('/:id', (req, res) => {
