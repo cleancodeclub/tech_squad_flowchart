@@ -1,6 +1,6 @@
 import express from 'express';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, doc, getDoc, addDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, getDoc, addDoc, updateDoc } from 'firebase/firestore/lite';
 import { firebaseConfig } from '../config.js';
 export const dataRouter = express.Router()
 
@@ -50,14 +50,9 @@ dataRouter.post('/:id', (req, res) => {
   // implement functionality
 })
 
-
-
-
-
-
-
-
 // [TODO Ricardo] update a document
-dataRouter.patch('/:id', (req, res) => {
-  // implement functionality
+dataRouter.patch('/update', async (req, res) => {
+  const docRef = doc(db, 'test', "GyD5uxvecyXcayraC5ds")
+  await updateDoc(docRef, {text: "Updated"})
+  res.status(200).send('Sucessful')
 })
