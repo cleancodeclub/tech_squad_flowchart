@@ -52,14 +52,9 @@ dataRouter.delete('/delete', async (req, res) => {
   await deleteDoc(doc(db, "test", "optjhzgDK2ylSs4lyZLl"))
 })
 
-
-
-
-
-
-
-
 // [TODO Ricardo] update a document
-dataRouter.patch('/:id', async (req, res) => {
-  
+dataRouter.patch('/update', async (req, res) => {
+  const docRef = doc(db, 'test', "76UNes7S5BJVDmi2Ts2s")
+  await updateDoc(docRef, {text: "New update"})
+  res.status(200).send('Sucessful')
 })
