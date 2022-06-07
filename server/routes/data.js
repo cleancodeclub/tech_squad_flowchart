@@ -1,6 +1,7 @@
 import express from 'express';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, doc, getDoc, addDoc, deleteDoc } from 'firebase/firestore/lite';
+
 import { firebaseConfig } from '../config.js';
 export const dataRouter = express.Router()
 
@@ -33,6 +34,7 @@ dataRouter.get('/:id', async (req, res) => {
     })
   })
 
+
 //add a single document
 dataRouter.post('/', async (req, res) => {
   // Add a new document with a generated id.
@@ -49,6 +51,13 @@ dataRouter.post('/', async (req, res) => {
 dataRouter.delete('/delete', async (req, res) => {
   await deleteDoc(doc(db, "test", "optjhzgDK2ylSs4lyZLl"))
 })
+
+
+
+
+
+
+
 
 // [TODO Ricardo] update a document
 dataRouter.patch('/:id', async (req, res) => {
