@@ -5,8 +5,12 @@
           @click="getAllData">
     Get All Data
   </button>
+  <div v-if="testData.imgURL">
+    <img :src="testData.imgURL"
+         alt="some random image">
+  </div>
   <div>
-    {{ testData }}
+    {{ testData.text }}
   </div>
 </template>
 
@@ -20,14 +24,14 @@ export default {
   },
   data() {
     return {
-      testData: []
+      testData: [],
     }
   },
   methods: {
     getAllData() {
       axios.get('http://localhost:8080/data')
         .then(response => {
-          this.testData = response
+          this.testData = response.data[0]
         })
     }
   }
