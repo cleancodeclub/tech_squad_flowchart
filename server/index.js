@@ -4,7 +4,7 @@ import { dataRouter } from './routes/data.js';
 
 // express setup
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 app.use('/step', stepRouter)
 app.use('/data', dataRouter)
