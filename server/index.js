@@ -1,9 +1,18 @@
 import express from 'express'
+import cors from 'cors'
 import { stepRouter } from './routes/step.js';
 import { dataRouter } from './routes/data.js';
 
 // express setup
 const app = express()
+
+// setup cross origin
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
 const PORT = process.env.PORT || 8080
 
 app.use('/step', stepRouter)
@@ -18,7 +27,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`);
 })
-
-
-
-
