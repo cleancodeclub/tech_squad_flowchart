@@ -12,15 +12,18 @@
   <div>
     {{ testData.text }}
   </div>
+  <data-create></data-create>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import DataCreate from "./components/DataCreate.vue";
 import axios from 'axios'
 
 export default {
   components: {
-    'navbar': Navbar
+    'navbar': Navbar,
+    'data-create': DataCreate
   },
   data() {
     return {
