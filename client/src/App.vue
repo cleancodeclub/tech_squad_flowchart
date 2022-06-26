@@ -1,45 +1,20 @@
 <template>
-  <navbar></navbar>
-  <p>Hello Tech Squad</p>
-  <button class="bg-blue-500 p-3 rounded-xl my-2 text-white font-semibold"
-          @click="getAllData">
-    Get All Data
-  </button>
-  <div v-if="testData.imgURL">
-    <img :src="testData.imgURL"
-         alt="some random image">
+  <div id="app">
+    <b-navbar>
+      <b-navbar-nav>
+        <b-nav-item :to="{name: 'home'}">Home</b-nav-item>
+        <b-nav-item :to="{name: 'about'}">About</b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item to="#">Login</b-nav-item>
+        <b-nav-item :to="{name: 'create'}">Create</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+    <router-view />
   </div>
-  <div>
-    {{ testData.text }}
-  </div>
-  <data-create></data-create>
 </template>
 
-<script>
-import Navbar from "./components/Navbar.vue";
-import DataCreate from "./components/DataCreate.vue";
-import axios from 'axios'
-
-export default {
-  components: {
-    'navbar': Navbar,
-    'data-create': DataCreate
-  },
-  data() {
-    return {
-      testData: [],
-    }
-  },
-  methods: {
-    getAllData() {
-      axios.get('http://localhost:8080/data')
-        .then(response => {
-          this.testData = response.data[0]
-        })
-    }
-  }
-
-}
-</script>
+<style>
 
 
+</style>
