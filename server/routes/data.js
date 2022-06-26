@@ -14,10 +14,11 @@ dataRouter.get('/', async (req, res) => {
     const querySnapshot = await getDocs(collection(db, "test"));
     const documents = querySnapshot.docs
     const docsCopy = documents.map((doc) => {
-      // test logs
-      console.log(`${doc.id} => ${doc.data().text}`);
-      console.log(doc.data())
-      return doc.data()
+      return {
+        id: doc.id,
+        text: doc.data().text,
+        imageURL: doc.data().imgURL
+      }
     });
     res.send(docsCopy)
   })
@@ -41,7 +42,7 @@ dataRouter.post('/', async (req, res) => {
   const data = {
     imgURL: 'https://images.unsplash.com/photo-1501949997128-2fdb9f6428f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     text: 'Test'
-    } 
+    }
   addDoc(colRef, data)
   // const addDoc = await db.collection('test').doc('shaunTestAdd').set(data);
   res.status(200).send("Successful")
@@ -61,5 +62,5 @@ dataRouter.delete('/delete', async (req, res) => {
 
 // [TODO Ricardo] update a document
 dataRouter.patch('/:id', async (req, res) => {
-  
+
 })
