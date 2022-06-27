@@ -1,5 +1,6 @@
 <template>
   <div class="create mx-5 border p-4">
+    <h1>Add new data</h1>
     <b-form>
       <b-form-group id="text-group-input"
                     label="Text"
@@ -19,6 +20,10 @@
                      placeholder="Choose a file or drop it here..."
                      drop-placeholder="Drop file here..."></b-form-file>
       </b-form-group>
+      <b-form-group class="ml-auto">
+        <b-button variant="primary">Submit</b-button>
+        <b-button variant="warning">Reset</b-button>
+      </b-form-group>
     </b-form>
   </div>
 </template>
@@ -29,7 +34,7 @@ export default {
     return {
       form: {
         text: '',
-        image: '',
+        image: null,
       },
     }
   },
