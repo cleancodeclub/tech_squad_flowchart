@@ -11,9 +11,11 @@
                       placeholder="Enter text"
                       required></b-form-input>
       </b-form-group>
-      <b-form-group>
-        <b-form-file v-model="file1"
-                     :state="Boolean(file1)"
+      <b-form-group id="image"
+                    label="Image"
+                    label-for="image">
+        <b-form-file v-model="form.image"
+                     :state="Boolean(image)"
                      placeholder="Choose a file or drop it here..."
                      drop-placeholder="Drop file here..."></b-form-file>
       </b-form-group>
