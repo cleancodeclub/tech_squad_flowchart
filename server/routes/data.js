@@ -1,6 +1,7 @@
 import express from 'express';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, doc, getDoc, addDoc, deleteDoc } from 'firebase/firestore/lite';
+import { getStorage, listAll, ref, uploadBytes } from 'firebase/storage'
 
 import { firebaseConfig } from '../config.js';
 export const dataRouter = express.Router()
@@ -20,6 +21,17 @@ dataRouter.get('/', async (req, res) => {
         imageURL: doc.data().imgURL
       }
     });
+    const storage = getStorage();
+    const storageRef = ref(storage)
+    const imageRef = ref(storageRef, 'images')
+
+    listAll(imageRef)
+    .then((res) => {
+      res.items.forEach((image) => {
+        console.log(image)
+      })
+    })
+
     res.send(docsCopy)
   })
 
@@ -53,14 +65,24 @@ dataRouter.delete('/delete', async (req, res) => {
   await deleteDoc(doc(db, "test", "optjhzgDK2ylSs4lyZLl"))
 })
 
-
-
-
-
-
-
-
 // [TODO Ricardo] update a document
 dataRouter.patch('/:id', async (req, res) => {
 
+})
+
+dataRouter.post('/upload', async (req, res) => {
+  // upload form data to storage
+  // get url string back from uploaded image
+  // add doc
+  const { text, image } = req.body
+  console.log(req)
+
+  const storage = getStorage();
+  const storageRef = ref(storage, 'images');
+
+  // 'file' comes from the Blob or File API
+//   uploadBytes(storageRef, image).then((snapshot) => {
+//   console.log('Uploaded a blob or file!')
+//   console.log(snapshot)
+// });
 })

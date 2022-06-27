@@ -1,10 +1,10 @@
 import express from 'express'
-import cors from 'cors'
 import { stepRouter } from './routes/step.js';
 import { dataRouter } from './routes/data.js';
 
 // express setup
 const app = express()
+app.use(express.json())
 
 // setup cross origin
 app.use((req, res, next) => {
